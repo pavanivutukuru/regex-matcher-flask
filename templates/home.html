@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Matcher</title>
+</head>
+<body>
+    <h2>Regex Matcher Tool</h2>
+
+    <form method="POST">
+        <label>Test String:</label><br>
+        <textarea name="text_data" rows="5" cols="50" required></textarea><br><br>
+
+        <label>Regex Pattern:</label><br>
+        <input type="text" name="regex_pattern" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if matches %}
+        <h3>Total Matches: {{ count }}</h3>
+        <ul>
+            {% for match in matches %}
+                <li>{{ match }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
